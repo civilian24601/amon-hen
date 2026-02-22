@@ -1,0 +1,141 @@
+rss:
+  # Wire services (highest authority, lowest bias)
+  - name: Reuters World
+    url: https://feeds.reuters.com/reuters/worldNews
+    category: wire
+    refresh_minutes: 15
+
+  - name: AP Top News
+    url: https://rsshub.app/apnews/topics/apf-topnews
+    category: wire
+    refresh_minutes: 15
+
+  # Quality international outlets
+  - name: BBC World
+    url: https://feeds.bbci.co.uk/news/world/rss.xml
+    category: news_intl
+    refresh_minutes: 30
+
+  - name: Al Jazeera
+    url: https://www.aljazeera.com/xml/rss/all.xml
+    category: news_intl
+    refresh_minutes: 30
+
+  - name: NHK World
+    url: https://www3.nhk.or.jp/rss/news/cat0.xml
+    category: news_intl
+    refresh_minutes: 60
+
+  - name: DW News
+    url: https://rss.dw.com/rdf/rss-en-all
+    category: news_intl
+    refresh_minutes: 60
+
+  - name: France24
+    url: https://www.france24.com/en/rss
+    category: news_intl
+    refresh_minutes: 60
+
+  # US outlets (left-center, center, right-center for balance)
+  - name: NPR
+    url: https://feeds.npr.org/1001/rss.xml
+    category: news_us
+    refresh_minutes: 30
+
+  - name: The Hill
+    url: https://thehill.com/feed/
+    category: news_us
+    refresh_minutes: 30
+
+  - name: The Dispatch
+    url: https://thedispatch.com/feed/
+    category: news_us_right
+    refresh_minutes: 60
+
+  # Government/institutional primary sources
+  - name: State Dept Briefings
+    url: https://www.state.gov/rss-feed/press-releases/feed/
+    category: gov_us
+    refresh_minutes: 120
+
+  - name: DoD News
+    url: https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945
+    category: gov_us
+    refresh_minutes: 120
+
+  - name: UN News
+    url: https://news.un.org/feed/subscribe/en/news/all/rss.xml
+    category: gov_intl
+    refresh_minutes: 120
+
+  # Think tanks and analysis
+  - name: War on the Rocks
+    url: https://warontherocks.com/feed/
+    category: analysis
+    refresh_minutes: 120
+
+  - name: CSIS
+    url: https://www.csis.org/rss.xml
+    category: analysis
+    refresh_minutes: 240
+
+  - name: Brookings
+    url: https://www.brookings.edu/feed/
+    category: analysis
+    refresh_minutes: 240
+
+  - name: Carnegie Endowment
+    url: https://carnegieendowment.org/rss/solr/?query=*
+    category: analysis
+    refresh_minutes: 240
+
+  # Regional (for demo topics)
+  - name: Times of Israel
+    url: https://www.timesofisrael.com/feed/
+    category: news_regional
+    refresh_minutes: 30
+
+  - name: Tehran Times
+    url: https://www.tehrantimes.com/rss
+    category: news_regional
+    refresh_minutes: 60
+
+  - name: South China Morning Post
+    url: https://www.scmp.com/rss/91/feed
+    category: news_regional
+    refresh_minutes: 30
+
+gdelt:
+  enabled: true
+  queries:
+    - name: us_israel_iran
+      keywords: ["Israel", "Iran", "Netanyahu", "Khamenei", "IRGC", "IDF"]
+      refresh_minutes: 15
+    - name: us_china
+      keywords: ["China", "Taiwan", "Xi Jinping", "trade war", "semiconductor"]
+      refresh_minutes: 15
+    - name: ai_governance
+      keywords: ["AI regulation", "artificial intelligence policy", "AI safety"]
+      refresh_minutes: 30
+
+bluesky:
+  enabled: true
+  filter_mode: keyword
+  keywords: ["OSINT", "Israel", "Iran", "geopolitics", "narrative", "disinformation", "infops"]
+  max_posts_per_cycle: 200
+  refresh_minutes: 5
+
+reddit:
+  enabled: true
+  subreddits:
+    - name: geopolitics
+      sort: hot
+      limit: 25
+    - name: credibledefense
+      sort: hot
+      limit: 25
+    - name: osint
+      sort: hot
+      limit: 15
+  include_top_comments: 3
+  refresh_minutes: 30
